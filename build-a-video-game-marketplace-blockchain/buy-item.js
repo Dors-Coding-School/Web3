@@ -6,7 +6,7 @@ const ec = new.EC.ec('p192');
 const buyerPrivateKey = process.argv[2];
 const itemBought = process.argv[3];
 
-const keyPair = ec.genKeyPair();
+const keyPair = ec.keyFromPrivate(buyerPrivateKey, 'hex');
 const publicKey = keyPair.getPublic('hex');
 const privateKey = keyPair.getPrivate('hex');
 
